@@ -61,15 +61,19 @@ navigationView.bringToFront();
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
            if( item.getItemId() == R.id.to_dos){
-               replaceFragment(new to_dos(),"Add dos");
+               replaceFragment(new to_dos(),"Add dos",null);
            }
            else if( item.getItemId() == R.id.to_categories){
-               replaceFragment(new categories(),"Categories");
+               replaceFragment(new categories(),"Categories",null);
            }
            else if( item.getItemId() == R.id.to_finished){
-               replaceFragment(new Fragment_finised(),"Finished");
+               replaceFragment(new to_dos(),"Finished",null);
            }  else if( item.getItemId() == R.id.add_todo){
                startActivity(new Intent(MainActivity.this,add_todo.class));
+
+           }
+           else if( item.getItemId() == R.id.add_category){
+               startActivity(new Intent(MainActivity.this,add_category.class));
 
            }
 
@@ -79,7 +83,17 @@ navigationView.bringToFront();
         return false;
     }
 
-    private  void replaceFragment(Fragment fragment,String title){
+    private  void replaceFragment(Fragment fragment,String title,Bundle args){
+        if (args != null) {
+            fragment.setArguments(args);
+
+        }
+        else{
+            Bundle bundle = new Bundle();
+            bundle.putString("title", title);
+            fragment.setArguments(bundle);
+        }
+
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frame_layout, fragment);

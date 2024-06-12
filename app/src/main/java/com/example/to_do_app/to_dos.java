@@ -1,5 +1,6 @@
 package com.example.to_do_app;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -24,7 +25,7 @@ public class to_dos extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM1 = "title";
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
@@ -63,6 +64,8 @@ public class to_dos extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+           // Toast.makeText(getContext(),mParam1,Toast.LENGTH_LONG).show();
+
         }
     }
 
@@ -73,13 +76,30 @@ public class to_dos extends Fragment {
         View view = inflater.inflate(R.layout.fragment_to_dos, container, false);
         tolist =view.findViewById(R.id.todo_items);
 
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+
+
+        }
+        else{
+            Toast.makeText(getContext(),"No bundle",Toast.LENGTH_LONG).show();
+        }
+
         Db db = new Db(getActivity());
-        List<ToDoModle> tds = db.getTodos();
-        toDoAdaptor = new ToDoAdaptor(getActivity(), tds,db);
+        String[] params = {mParam1,mParam2};
+        List<ToDoModle> tds = db.getTodos(params);
+
+
+
+        toDoAdaptor = new ToDoAdaptor(getActivity(), tds,db,inflater);
         tolist.setAdapter(toDoAdaptor);
 
-        Toast.makeText(getActivity(),tds.toString(),Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getActivity(),tds.toString(),Toast.LENGTH_SHORT).show();
+
 
         return view;
     }
+
+
+
 }

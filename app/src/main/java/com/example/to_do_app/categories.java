@@ -7,7 +7,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import com.example.to_do_app.adaptor.CategoryAdaptor;
+import com.example.to_do_app.adaptor.ToDoAdaptor;
+import com.example.to_do_app.dbModels.CategoriesModel;
+import com.example.to_do_app.dbModels.ToDoModle;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +33,9 @@ public class categories extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private ListView categoryList;
+
+    private CategoryAdaptor catAdaptor;
     public categories() {
         // Required empty public constructor
     }
@@ -59,10 +70,26 @@ public class categories extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_categories, container, false);
+
         // Inflate the layout for this fragment
+
+        categoryList =view.findViewById(R.id.cat_items);
+
+        Db db = new Db(getActivity());
+        List<CategoriesModel> cats = db.getCategories();
+        catAdaptor = new CategoryAdaptor(getActivity(), cats,db);
+        categoryList.setAdapter(catAdaptor);
+
+
+
+
         Toast.makeText(getActivity(),"sdsadasge",Toast.LENGTH_SHORT).show();
 
-        return inflater.inflate(R.layout.fragment_categories, container, false);
+
+
+
+        return view;
 
 
     }

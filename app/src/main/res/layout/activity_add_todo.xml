@@ -20,6 +20,7 @@
         android:theme="?attr/actionBarTheme"
         app:navigationIcon="?attr/homeAsUpIndicator"
         app:subtitleTextColor="@color/white"
+
         />
 
     <LinearLayout
@@ -54,7 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:background="@color/color1"
+            android:background="@color/material_dynamic_neutral10"
             android:text="Save" />
     </LinearLayout>
 

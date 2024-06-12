@@ -1,11 +1,11 @@
 package com.example.to_do_app.dbModels;
 
-public class categories {
+public class CategoriesModel {
     private int id;
     private String category;
     private String created_at;
 
-    public categories(int id, String category, String created_at) {
+    public CategoriesModel(int id, String category, String created_at) {
         this.id = id;
         this.category = category;
         this.created_at = created_at;

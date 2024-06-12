@@ -3,12 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="70dp"
     tools:context=".to_dos">
+
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="All Categories"
+       android:padding="10dp"
+     android:textSize="17sp"
+
+   />
 
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent"
-       android:layout_marginTop="70dp"
+android:layout_marginTop="30dp"
        >
       <ListView
           android:id="@+id/todo_items"
