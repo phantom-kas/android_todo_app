@@ -16,7 +16,7 @@
         app:title="Add Category"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/color1"
-        app:titleTextColor="@color/white"
+
         android:theme="?attr/actionBarTheme"
         app:navigationIcon="?attr/homeAsUpIndicator"
 

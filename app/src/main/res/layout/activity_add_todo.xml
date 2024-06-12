@@ -16,7 +16,8 @@
         app:title="Add todo"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/color1"
-        app:titleTextColor="@color/white"
+
+
         android:theme="?attr/actionBarTheme"
         app:navigationIcon="?attr/homeAsUpIndicator"
         app:subtitleTextColor="@color/white"

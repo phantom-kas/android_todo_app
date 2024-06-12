@@ -73,6 +73,10 @@ public class add_category extends AppCompatActivity {
 
         Db Db = new Db(add_category.this);
         boolean isSuccess =Db.addCategory(cat);
+
+        if(isSuccess){
+            input.setText("");
+        }
         Toast.makeText(add_category.this,"Success ="+ isSuccess,Toast.LENGTH_SHORT).show();
 
     }

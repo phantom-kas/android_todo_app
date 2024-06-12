@@ -5,23 +5,25 @@
         >
         <item
             android:id="@+id/to_dos"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/twotone_outlined_flag_24"
+
             android:title="To dos" />
         <item
             android:id="@+id/to_finished"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/baseline_playlist_add_check_24"
             android:title="Finished" />
         <item
             android:id="@+id/to_categories"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/baseline_category_24"
             android:title="Categories" />
         <item
             android:id="@+id/add_todo"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/baseline_playlist_add_24"
             android:title="Add to do" />
         <item
             android:id="@+id/add_category"
-            android:icon="@drawable/ic_menu_slideshow"
+
+            android:icon="@drawable/baseline_add_box_24"
             android:title="Add Category" />
     </group>
 </menu>

@@ -92,6 +92,9 @@ button.setOnClickListener(new View.OnClickListener() {
 
 //        Db Db = new Db(add_todo.this);
         boolean isSuccess =db.addTodo(todo);
+        if(isSuccess){
+            input.setText("");
+        }
         Toast.makeText(add_todo.this,"Success ="+ isSuccess,Toast.LENGTH_SHORT).show();
 
     }
