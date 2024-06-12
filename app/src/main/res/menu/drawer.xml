@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" tools:showIn="navigation_view" xmlns:tools="http://schemas.android.com/tools">
+    <group
+        android:checkableBehavior="single"
+        >
+        <item
+            android:id="@+id/to_dos"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="To dos" />
+        <item
+            android:id="@+id/to_finished"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Finished" />
+        <item
+            android:id="@+id/to_categories"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Categories" />
+        <item
+            android:id="@+id/add_todo"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Add to do" />
+        <item
+            android:id="@+id/add_category"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Add Category" />
+    </group>
+</menu>

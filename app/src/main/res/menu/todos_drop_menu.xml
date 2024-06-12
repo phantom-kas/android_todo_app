@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/option1"
+        android:icon="@drawable/baseline_delete_24"
+        android:title="Delete" />
+    <item
+        android:id="@+id/option2"
+        android:icon="@drawable/baseline_edit_24"
+        android:title="Edit" />
+<!--    <item-->
+<!--        android:id="@+id/option3"-->
+<!--        android:icon="@drawable/ic_option3"-->
+<!--        android:title="Option 3" />-->
+</menu>
