@@ -84,10 +84,10 @@ button.setOnClickListener(new View.OnClickListener() {
             return;
         }
 
-        if(spinnerCategory.getSelectedItemPosition() == 0){
-            Toast.makeText(add_todo.this,"Category is Required",Toast.LENGTH_SHORT).show();
-            return;
-        }
+        //if(spinnerCategory.getSelectedItemPosition()){
+        //    Toast.makeText(add_todo.this,"Category is Required",Toast.LENGTH_SHORT).show();
+          //  return;
+        //}
 
 
 //        Db Db = new Db(add_todo.this);

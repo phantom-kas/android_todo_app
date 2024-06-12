@@ -2,7 +2,10 @@ package com.example.to_do_app;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -78,7 +81,7 @@ public class categories extends Fragment {
 
         Db db = new Db(getActivity());
         List<CategoriesModel> cats = db.getCategories();
-        catAdaptor = new CategoryAdaptor(getActivity(), cats,db);
+        catAdaptor = new CategoryAdaptor(getActivity(), cats,db,getFragmentManager(),inflater);
         categoryList.setAdapter(catAdaptor);
 
 
@@ -93,4 +96,6 @@ public class categories extends Fragment {
 
 
     }
+
+
 }

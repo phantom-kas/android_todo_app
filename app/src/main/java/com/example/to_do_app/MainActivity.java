@@ -3,6 +3,7 @@ package com.example.to_do_app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 import android.window.OnBackInvokedDispatcher;
 
 import androidx.annotation.NonNull;
@@ -32,6 +33,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
 //        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+        Intent intent = getIntent();
+
+        if (intent != null) {
+            int cid = intent.getIntExtra("cat_id", -1);
+            String todoName = intent.getStringExtra("fragment");
+            String title2 = intent.getStringExtra("title2");
+            if (cid != -1 && todoName != null) {
+               //Toast.makeText(this, todoName, Toast.LENGTH_SHORT).show();
+                if(todoName.equals("todos")){
+                    Bundle bundle = new Bundle();
+                    bundle.putString("title2", title2);
+                    bundle.putString("cid", Integer.toString(cid));
+                    bundle.putString("title", "get_todo_in_cat");
+                    Toast.makeText(this, todoName+title2, Toast.LENGTH_SHORT).show();
+                    this.replaceFragment(new to_dos(),"Add dos",bundle);
+                }
+                else{
+                    this.replaceFragment(new to_dos(),"Todo App",null);
+                }
+            }
+            else{
+                this.replaceFragment(new to_dos(),"Todo App",null);
+            }
+        }else{
+            this.replaceFragment(new to_dos(),"Todo App",null);
+        }
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawerLayout = findViewById(R.id.main);
@@ -43,7 +70,7 @@ navigationView.bringToFront();
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-//        replaceFragment(new categories(),"");
+
     }
 
 
@@ -83,7 +110,7 @@ navigationView.bringToFront();
         return false;
     }
 
-    private  void replaceFragment(Fragment fragment,String title,Bundle args){
+    public  void replaceFragment(Fragment fragment,String title,Bundle args){
         if (args != null) {
             fragment.setArguments(args);
 

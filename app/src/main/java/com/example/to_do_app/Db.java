@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -80,10 +81,13 @@ public class Db extends SQLiteOpenHelper {
     public List<ToDoModle> getTodos(String[] param){
         String sql;
         if(param[0].equals("Add dos")){
-            sql = "SELECT * from "+TODOTABLE;
+            sql = "SELECT * from "+TODOTABLE +" where "+COLUMN_ISDONE  +" != 1";
         }
         else if(param[0].equals("Finished")){
-            sql = "SELECT * from "+TODOTABLE;
+            sql = "SELECT * from "+TODOTABLE +" where "+COLUMN_ISDONE  +" = 1";
+        }
+        else if(param[0].equals("get_todo_in_cat")){
+            sql = "SELECT * from "+TODOTABLE +" where "+COLUMN_CATEGORY_ID  +" = "+param[1];
         }
         else {
             sql = "SELECT * from "+TODOTABLE;
@@ -170,6 +174,27 @@ public class Db extends SQLiteOpenHelper {
         values.put(COLUMN_CATEGORY_ID, todo.getCategoryId());
 
         db.update(TODOTABLE, values, "id = ?", new String[]{String.valueOf(todo.getId())});
+        db.close();
+    }
+
+
+
+    public void updateCat(CategoriesModel cat) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_CATEGORY_NAME, cat.getCategory());
+
+
+        db.update(TABLE_CATEGORIES, values, "id = ?", new String[]{String.valueOf(cat.getId())});
+        db.close();
+    }
+
+    public void updateTodoStatus(int id, boolean isDone) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("is_done", isDone ? 1 : 0);
+
+        db.update(TODOTABLE, values, "id = ?", new String[]{String.valueOf(id)});
         db.close();
     }
 }

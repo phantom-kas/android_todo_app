@@ -3,31 +3,30 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:id="@+id/edit_to_dialog"
+    android:id="@+id/edit_cat_dialog"
     android:padding="16dp">
 
     <EditText
-        android:id="@+id/editTitle"
+        android:id="@+id/CateditTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:hint="Title" />
+        android:hint="Category" />
 
-<!--    <EditText-->
-<!--        android:id="@+id/editCategory"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:hint="Category" />-->
+    <!--    <EditText-->
+    <!--        android:id="@+id/editCategory"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:hint="Category" />-->
 
-    <Spinner
-        android:id="@+id/editCategory"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+
 
     <Button
-        android:id="@+id/btnSave"
+        android:id="@+id/btnSaveCat"
         android:layout_marginTop="10dp"
+        android:gravity="center"
+
+        android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Save" />

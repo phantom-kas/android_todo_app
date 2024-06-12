@@ -58,7 +58,12 @@ public class ToDoAdaptor extends BaseAdapter {
     public long getItemId(int position) {
         return position;
     }
-
+    public void removeItem(int position) {
+        if (position >= 0 && position < items.size()) {
+            items.remove(position);
+            notifyDataSetChanged();
+        }
+    }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
@@ -73,6 +78,14 @@ public class ToDoAdaptor extends BaseAdapter {
         ImageButton dropdownButton = convertView.findViewById(R.id.dropdownButton);
 
         CheckBox donecheck =convertView.findViewById(R.id.donecheck);
+
+
+        donecheck.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            currentItem.setDone(isChecked);
+            db.updateTodoStatus(currentItem.getId(), isChecked);
+
+            removeItem(position);
+        });
 
         titleTextView.setText(currentItem.getTodo());
         donecheck.setChecked(currentItem.isDone());
@@ -94,16 +107,14 @@ public class ToDoAdaptor extends BaseAdapter {
                             Toast.makeText(context, "Delete", Toast.LENGTH_SHORT).show();
 
                             db.deleteTodo(currentItem);
-                            items.remove(position);
-                            notifyDataSetChanged();
+                            removeItem(position);
                             return true;
                         }
                         else if(item.getItemId() == R.id.option2){
                           //  Toast.makeText(context, "Edit selected", Toast.LENGTH_SHORT).show();
                             showEditDialog(currentItem,position,context);
                             return true;
-//                            items.remove(position);
-//                            notifyDataSetChanged();
+//
 
                         }
                        return false;
@@ -170,4 +181,6 @@ public class ToDoAdaptor extends BaseAdapter {
         });
         dialog.show();
     }
+
+
 }

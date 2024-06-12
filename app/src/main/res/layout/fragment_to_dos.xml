@@ -10,6 +10,7 @@
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:text="All Categories"
+       android:id="@+id/to_cat_title"
        android:padding="10dp"
      android:textSize="17sp"
 
